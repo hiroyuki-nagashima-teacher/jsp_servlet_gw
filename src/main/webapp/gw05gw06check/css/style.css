@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    --bg-gradient: radial-gradient(circle at top, #f8fafc 0%, #e2e8f0 100%);
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --focus-ring: rgba(99, 102, 241, 0.2);
+    --shadow-main: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(99, 102, 241, 0.1), 0 10px 10px -6px rgba(99, 102, 241, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-main);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    color: #4f46e5;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    background-color: #f1f5f9;
+    border-left: 4px solid #4f46e5;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* フォーム関連 */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label.form-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #334155;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    background-color: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+
+.radio-item,
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.radio-item input,
+.checkbox-item input {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: #6366f1;
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ボタン */
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 0.85rem;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.4);
+    margin-top: 2rem;
+}
+
+.btn-submit:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+}
+
+.btn-submit:active {
+    transform: translateY(1px);
+}
+
+/* テーブル関連 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+
+th {
+    background-color: #f8fafc;
+    font-weight: 600;
+    color: #475569;
+    width: 30%;
+}
+
+tr:hover td {
+    background-color: #f1f5f9;
+}
+
+/* 箇条書き */
+ul.list-style {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.list-style li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+ul.list-style li::before {
+    content: "•";
+    color: #6366f1;
+    font-weight: bold;
+    font-size: 1.25rem;
+    position: absolute;
+    left: 0.25rem;
+    top: -0.1rem;
+}
+
+/* リンク */
+.nav-link {
+    display: inline-block;
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #7c3aed;
+    text-decoration: underline;
+}
+
+/* メモ・アラート */
+.memo-box {
+    background-color: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+.memo-box dt {
+    font-weight: 600;
+    color: #b45309;
+    margin-top: 0.5rem;
+}
+
+.memo-box dd {
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    color: #78350f;
+}

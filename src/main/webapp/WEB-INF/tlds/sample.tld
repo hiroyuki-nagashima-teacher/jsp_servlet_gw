@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    TLD (Tag Library Descriptor) ファイル:
+    JSPページで使用する「独自タグ」の名称と、それを処理する「Javaクラス」の対応関係を定義する設定ファイルです。
+-->
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <!-- タグライブラリのバージョン -->
+    <tlib-version>1.0</tlib-version>
+    <!-- JSPファイル内で使用する際のデフォルト接頭辞の推奨値 -->
+    <short-name>sample</short-name>
+    <!-- タグライブラリを識別するためのURI (JSPのtaglibディレクティブのuri属性と対応) -->
+    <uri>http://example.com/tags/sample</uri>
+
+    <!-- 独自タグ「hello」の定義 -->
+    <tag>
+        <description>Outputs a greetings message</description>
+        <!-- タグ名 (<sample:hello />) -->
+        <name>hello</name>
+        <!-- タグを処理するJavaクラス -->
+        <tag-class>gw04.tag.HelloTag</tag-class>
+        <!-- ボディ（タグで囲まれた中身）は無しとする設定 -->
+        <body-content>empty</body-content>
+
+        <!-- 独自属性「name」の定義 -->
+        <attribute>
+            <!-- 属性名。Javaクラスの setName メソッドと対応します -->
+            <name>name</name>
+            <!-- 属性の指定を必須としない設定 (false) -->
+            <required>false</required>
+            <!-- 属性値にスクリプトレットの式やELなどの動的な値を許可する設定 (true) -->
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>

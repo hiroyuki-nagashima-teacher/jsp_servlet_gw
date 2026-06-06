@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+    TLD (Tag Library Descriptor) ファイル:
+    JSPページで使用する「独自タグ」の名称と、それを処理する「Javaクラス」の紐付けを定義するXML設定ファイルです。
+    Tomcatは起動時にこのファイルを読み込んでタグの解析ルールを構築します。
+-->
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+    
+    <description>Custom Tag Library for Badges</description>
+    <display-name>Badge Tags</display-name>
+    <tlib-version>1.0</tlib-version>
+    
+    <!-- JSP側でタグライブラリを識別するための省略名（デフォルト値） -->
+    <short-name>badge</short-name>
+    
+    <!-- 
+        JSPファイルがこのTLDファイルをインポートする際に指定する一意の識別子 (URI) です。
+        実在するWebサイトのURLである必要はありません。JSPのuri属性と同じ値を設定します。
+    -->
+    <uri>http://example.com/tags/badge</uri>
+    
+    <!-- 独自タグ「level」の定義ブロック -->
+    <tag>
+        <description>Outputs a severity level badge</description>
+        <!-- 
+            JSPページ内で実際に使用するカスタムタグの名称を設定します。
+            例: <prefix名:level />
+        -->
+        <name>level</name>
+        
+        <!-- このタグが呼び出されたときに実行されるJavaクラスの完全修飾クラス名（パッケージ名を含む） -->
+        <tag-class>gw05.tag.LevelBadgeTag</tag-class>
+        
+        <!-- 
+            タグのボディ（中身）の形式を指定します。
+            "empty" は、<badge:level></badge:level> のように中に文字や別のタグを入れず、
+            <badge:level /> という単体の空タグとして使用することを意味します。
+        -->
+        <body-content>empty</body-content>
+        
+        <!-- 
+            タグで受け付けるオプション属性 (level="...") の定義ブロックです。
+            ここで属性を定義すると、対応するJavaクラス内に同名の setter メソッドが必要になります。
+        -->
+        <attribute>
+            <!-- 属性名。Javaクラス側の setLevel メソッドと紐づきます -->
+            <name>level</name>
+            
+            <!-- この属性の指定が必須であるかどうか (false = 省略可能) -->
+            <required>false</required>
+            
+            <!-- 
+                rtexprvalue (Run-time Expression Value):
+                実行時にスクリプトレットの式 <%= ... %> や EL式などの動的な値を受け取れるか。
+                (true = 動的な値の受け取りを許可)
+            -->
+            <rtexprvalue>true</rtexprvalue>
+            
+            <!-- 属性値がJava側に渡される際のデータ型 -->
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+</taglib>
