@@ -3,4 +3,43 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <servlet>
+        <servlet-name>DbInfoServlet</servlet-name>
+        <servlet-class>portal.servlet.DbInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>MemoFormServlet</servlet-name>
+        <servlet-class>portal.servlet.MemoFormServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>MemoRegisterServlet</servlet-name>
+        <servlet-class>portal.servlet.MemoRegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SummaryServlet</servlet-name>
+        <servlet-class>portal.servlet.SummaryServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DbInfoServlet</servlet-name>
+        <url-pattern>/db-info</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MemoFormServlet</servlet-name>
+        <url-pattern>/memo-form</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MemoRegisterServlet</servlet-name>
+        <url-pattern>/memo-register</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SummaryServlet</servlet-name>
+        <url-pattern>/summary</url-pattern>
+    </servlet-mapping>
 </web-app>
